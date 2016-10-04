@@ -1,12 +1,15 @@
 
+import re
+from collections import Counter
 
-def load_data(filepath):
-    pass
+with open('myfile.txt') as f:
+    passage = f.read()
 
+words = re.findall(r'\w+', passage)
 
-def get_most_frequent_words(text):
-    pass
+cap_words = [word.upper() for word in words]
 
+word_counts = Counter(cap_words)
+top_ten = word_counts.most_common(10)
+print(top_ten)
 
-if __name__ == '__main__':
-    pass
