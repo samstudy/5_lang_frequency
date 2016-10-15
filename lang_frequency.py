@@ -3,6 +3,8 @@ import re
 import collections
 from collections import Counter
 
+quantity_words_to_show = 10
+
 def load_data(filepath):
     if not os.path.exists(filepath):
        return None
@@ -15,7 +17,7 @@ def get_most_frequent_words():
     words = re.findall(r'\w+', action)
     resulting_count = collections.Counter(words)
     word_counts = Counter(resulting_count)
-    top_ten = word_counts.most_common(10)
+    top_ten = word_counts.most_common(quantity_words_to_show)
     return (top_ten)
 
 
